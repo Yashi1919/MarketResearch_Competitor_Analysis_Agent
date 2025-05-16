@@ -13,5 +13,14 @@ crew = Crew(
 
 # starting the task execution process with enhanced feedback
 
-result = crew.kickoff(inputs={'topic': 'At home fertility tests'})
+
+try:
+    topic = input("What's the topic: ").strip()
+    if not topic:
+        raise ValueError("Topic cannot be empty")
+except KeyboardInterrupt:
+    print("\nInput cancelled. Exiting.")
+    exit(1)
+
+result = crew.kickoff(inputs={"topic": topic})
 print(result)
